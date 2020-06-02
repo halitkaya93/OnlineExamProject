@@ -1,0 +1,56 @@
+﻿@model OnlineExamProject.Models.Questions
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QuizStart</title>
+</head>
+<body>
+
+<div>
+    <h4 class="alert-danger">Questions</h4>
+    <hr />
+    
+    <div class="row">
+        <div class="container" style="margin:0 auto;margin-top:100px;font-family:'Arial Rounded MT'">
+            <div class="row">
+
+                <input type="text" value="@Html.DisplayFor(model => model.QText)" />
+            </div>
+
+            <div class="row">
+
+                <input type="radio" />@Html.DisplayFor(model => model.Opa)<br />
+            </div>
+
+            <div class="row">
+
+                <input type="radio" />@Html.DisplayFor(model => model.Opb)<br />
+            </div>
+
+            <div class="row">
+
+                <input type="radio" />@Html.DisplayFor(model => model.Opc)<br />
+            </div>
+
+            <div class="row">
+
+                <input type="radio" />@Html.DisplayFor(model => model.Opd)<br />
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div>
+   
+   <input type="submit" value="submit"  class="btn btn-success" />
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+
+<body>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2" style="height:900px;border:1px solid gray;background-color:blue">
+            <div class="list-group">
+                <a asp-controller="Home" asp-action="DashBoard"  class="list-group-item">Report</a>
+                <a asp-controller="Home" asp-action="AddQuestion"  class="list-group-item">Add Question</a>
+                <a asp-controller="Home" asp-action="LogOut" class="list-group-item">Log Out</a>
+            </div>
+
+
+        </div>
+
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xl-10" style="height:900px;border:1px solid gray">
+
+            @RenderBody()
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+   
+
+</body>
+</html>

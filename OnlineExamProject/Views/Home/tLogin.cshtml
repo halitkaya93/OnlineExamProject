@@ -1,0 +1,36 @@
+﻿@model OnlineExamProject.Models.TblAdmin
+
+@{
+    ViewData["Title"] = "tLogin";
+}
+
+<h1>Login as Teacher</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="tLogin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdName" class="control-label"></label>
+                <input asp-for="AdName" class="form-control" />
+                <span asp-validation-for="AdName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdPassword" class="control-label"></label>
+                <input asp-for="AdPassword" class="form-control"  / >
+                <span asp-validation-for="AdPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<p>@ViewBag.msg</p>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

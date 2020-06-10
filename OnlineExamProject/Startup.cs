@@ -24,12 +24,16 @@ namespace OnlineExamProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+           
+            services.AddDistributedMemoryCache();
+
             services.AddSession(options =>
             {
-                // 10 dakikalý Redis Timeout Süresi.
-                options.IdleTimeout = TimeSpan.FromMinutes(10);
-               
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -68,7 +68,10 @@ namespace OnlineExamProject.Controllers
         [HttpPost]
         public IActionResult slogin(TblStudent stu)
         {
+            
+           
             TblStudent t = new TblStudent();
+          
             t.SName = stu.SName;
             t.SPassword = stu.SPassword;
             dBEXAMContext.TblStudent.Add(t);
@@ -78,33 +81,21 @@ namespace OnlineExamProject.Controllers
           
         }
 
-        public IActionResult QuizStart()
+        public IActionResult QuizStart(int id)
         {
-            Questions q = null;
-            if (TempData["qid"]==null)
-            {
+            
+            var newmodel = dBEXAMContext.Questions.FirstOrDefault(i => i.QuestionId == id);
 
-                int id = 2;
-                q = dBEXAMContext.Questions.First(x => x.QuestionId == id);
-                TempData["qid"] = +q.QuestionId;
-            }
-            else
-            {
-                
-                int id = Convert.ToInt32(TempData["qid"].ToString());
-                q = dBEXAMContext.Questions.Where(x => x.QuestionId == id).SingleOrDefault();
-                TempData["qid"] = +q.QuestionId;
+            return View(newmodel);
 
-            }
-           
-            TempData.Keep();
-            return View(q);
+            
+
         }
         [HttpPost]
-        public IActionResult QuizStart(Questions q)
+        public IActionResult QuizStart( )
         {
 
-            return RedirectToAction("QuizStart");
+            return View();
         }
 
         public IActionResult DashBoard()
